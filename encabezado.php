@@ -87,8 +87,8 @@ HTML;
     </div>
 HTML1;
 }else{
-    echo '<div class="col-lg-2">
-    <p class="text-white"> Bienvenido ';
+    echo '<div class="col-lg-3">
+    <p class="text-white"> ';
     echo $_SESSION['email'];
     echo '</p>';
     echo '<a class="text-white" href="bd\cerrarsesion.php" >Cerrar Sesión</a>';
@@ -109,6 +109,10 @@ HTML1;
         <li class="nav-item">
             <a class="nav-link text-white" href="historia.php">Historia |</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" href="perfilCliente.php">Perfil |</a>
+        </li>
+        
         <!--<li class="nav-item"><a class="nav-link text-white" href="#">Soporte |</a></li> -->
     </ul>
 </div>

@@ -62,7 +62,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
       <div class="form-inline">
         <input type="text" class="form-control col-4" name="apellidoPaterno" placeholder="Apellido Paterno">
         <input type="text" class="form-control col-4" name="apellidoMaterno" placeholder="Apellido Materno">
-        <input type="text" class="form-control col-4" name="nombre" placeholder="Nombres">
+        <input type="text" class="form-control col-4" name="nombres" placeholder="Nombres">
       </div>
       <hr class="bg-info">
       <h3>Dirección Personal</h3>
