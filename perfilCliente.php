@@ -9,6 +9,7 @@ $nombre = "";
   $respuesta = $conexion->query($sql);//$conexion es la variable usada en conexion.php
   if($respuesta != false)
   {
+
     $atributo = $respuesta->fetchAll(PDO::FETCH_NAMED);
    // $atributo = $respuesta->fetchArray();
    // $nombre =  $atributo['idCliente']['nombres'] . "  " .  $atributo['idCliente']['apellidoPaterno'];
@@ -16,6 +17,7 @@ $nombre = "";
   }
   else{
     echo 'Hubo un problema';
+    
   }
 
 
@@ -30,11 +32,12 @@ $nombre = "";
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <script type="text/javascript" src="js/codigo1.js"></script>
     <title>Perfil</title>
   </head>
   <body>
     <div class="row">     
-      <div class="col-3">
+      <div class="col-md-3  col-sm-12">
       <div class="col-12 bg-light border border-success text-center">
       <div class="container align-items-start"> <img class="card-title " src="imagenes/user.png" width="30%"></div>
       
@@ -47,12 +50,12 @@ $nombre = "";
         <li class="list-group-item"><a href="#" class="text-info">Modificar contraseña</a></li>
         <li class="list-group-item"><a href="#" class="text-info">Ver historial de compras</a></li>
         <li class="list-group-item"><a href="#" class="text-info">Ver pedidos</a></li>
-        <li class="list-group-item"><a href="#" class="text-danger">Eliminar cuenta</a></li>
+        <li class="list-group-item"><a href="#" onclick="eliminaPerfil()" class="text-danger">Eliminar cuenta</a></li>
       </ul>
     </div>
 
     </div>
-    <div class="col bg-light">
+    <div class="col-md-8 col-sm-12 bg-light">
       <hr>
         <div class="container">
           <h2>Datos personales</h2>

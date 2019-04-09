@@ -59,17 +59,17 @@ HTML;
 
 <nav class="navbar navbar-dark bg-info text-white"  >
   <!-- Navbar content -->
-  <div class="container">
-   <div class="col-lg-3 col-md-3 col-sm-12 col-md-1 col-sm-1">
+  <div class="container center">
+  <div class="col-lg-3 col-md-3 col-sm-1 ">
     
 </div>
 
-    <div class="col-lg-2 col-sm-6 col-md-2 col-sm-4 py-3">
+    <div class="col-lg-2 col-sm-6 col-md-2 py-3 ">
          <form  method="POST" accept-charset="utf-8">
         <input type="text" name="filtro" placeholder="Nombre del articulo" class="custom-file-label">
     </div>
-    <div class="col-lg-2 col-md-4 col-sm-6 pl-4 mt-1 col-sm-12">
-        <button type="submit" method="POST" class="btn btn-warning text-white text-uppercase  font-weight-bold">Buscar</button>   
+    <div class="col-lg-2 col-md-4 col-sm-6 pl-4  col-sm-12 ">
+        <button type="submit" method="POST" class="btn btn-warning  text-white text-uppercase  font-weight-bold">Buscar</button>   
         </form>
          
     </div>
@@ -100,6 +100,9 @@ HTML1;
 <div class="bg-dark">
     <ul class="nav justify-content-end text-white">
         <li class="nav-item">
+            <a class="nav-link text-white" href="principal.php"><b>Principal |</b></a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link text-white" href="contacto.php">Contacto |</a>
         </li>
         <li class="nav-item">
@@ -112,7 +115,7 @@ HTML1;
         <li class="nav-item">
             <a class="nav-link text-white" href="perfilCliente.php">Perfil |</a>
         </li>
-        
+
         <!--<li class="nav-item"><a class="nav-link text-white" href="#">Soporte |</a></li> -->
     </ul>
 </div>

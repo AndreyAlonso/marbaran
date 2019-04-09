@@ -17,7 +17,9 @@ if($r != false){
   $productos = $r->fetchAll(PDO::FETCH_NAMED);
 }
 else{
-  echo 'Hubo un problema';
+  echo '<br><br><br><div class="alert alert-danger alert-dismissible fade show container text-center " role="alert">';
+  echo  'Ha ocurrido un problema con la base de datos';
+  echo  '</div><br><br><br>';
 }
 
 
@@ -25,7 +27,7 @@ else{
 <!doctype html>
 <html lang="en">
 <head>
-    <title>VentasPC</title>
+    <title>Productos</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,6 +45,7 @@ else{
     <!-- Estilos -->
     <link rel="stylesheet" type="text/css" href="css/contacto.css" />
     <link rel="stylesheet" type="text/css" href="css/Menu.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- Javascript -->
     <script type="text/javascript" src="js/codigo1.js"></script>
 </head>
