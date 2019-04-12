@@ -4,16 +4,16 @@ include('conexion.php');
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 
-  $email           = $_POST['email'];
-  $password        = $_POST['password'];
   $apellidoPaterno = $_POST['apellidoPaterno'];
   $apellidoMaterno = $_POST['apellidoMaterno'];
   $nombres         = $_POST['nombres'];
-  $municipio       = $_POST['municipio'];
-  $colonia         = $_POST['colonia'];
+  $email           = $_POST['email'];
+  $password        = $_POST['password'];
   $calle           = $_POST['calle']; 
   $numero          = $_POST['numero'];
+  $colonia         = $_POST['colonia'];
   $cp              = $_POST['cp'];
+  $municipio       = $_POST['municipio'];
   $telefono        = $_POST['telefono'];
 
   if($email != "")
@@ -32,9 +32,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
           header('Location:principal.php');            
     }
   }
-  
-
-  
 }
 
 
@@ -75,11 +72,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
       <hr class="bg-info">
       <h3>Dirección Personal</h3>
       <div class="form-inline">
-        <input type="text" class="form-control col-4" name="municipio" placeholder="Municipio">
-        <input type="text" class="form-control col-4" name="colonia" placeholder="Colonia">
-        <input type="text" class="form-control col-4" name="calle" placeholder="Calle">
+      <input type="text" class="form-control col-4" name="calle" placeholder="Calle">
         <input type="text" class="form-control col-4" name="numero" placeholder="Número">
+        <input type="text" class="form-control col-4" name="colonia" placeholder="Colonia">
         <input type="text" class="form-control col-4" name="cp" placeholder="Código Postal">
+        <input type="text" class="form-control col-4" name="municipio" placeholder="Municipio">
+        
       </div>
       <hr>
       <div class="form-group">
