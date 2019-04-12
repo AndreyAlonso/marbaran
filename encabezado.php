@@ -61,7 +61,7 @@ HTML;
   <!-- Navbar content -->
   <div class="container center">
   <div class="col-lg-3 col-md-3 col-sm-1 ">
-    
+    <img src="imagenes/crayon.png" width="100px">
 </div>
 
     <div class="col-lg-2 col-sm-6 col-md-2 py-3 ">

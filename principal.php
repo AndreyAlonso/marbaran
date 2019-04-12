@@ -58,21 +58,44 @@ else{
         $_SESSION['pagina'] = "principal.php";
     }
     ?>
-    <br>
-<div class="container justify-content-center col-10  text-center ">
 
-            <img src="imagenes/promocion.png"width="100%">
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="imagenes/promo1.png" class="d-block" height="400px" width="100%" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="imagenes/promo2.png" class="d-block" height="400px" width="100%" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+     
                  
        
             
             
 
         </div>
-        <br>
-        <br>
+
         <!-- SLIDER -->
         <div>
-            <h2 class="bg-dark text-white container py-2">Aprovecha estas promociones</h2>
+            <h2 class="  text-white   py-2" style="background-color: rgb(51,255,153);"><b>Promociones más recientes!</b></h2>
             <div class="container">
                 <div class="row">
                     <div class ="col-lg-4 col-md-4 col-sm-12 py-4">
@@ -126,7 +149,7 @@ else{
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <h2 class="alert alert-primary">Misión</h2>
+            <h2 class="text-white  py-2 btn-lg" style="background-color: rgb(102,178,255);"><b>Misión</b></h2>
             <hr>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -137,7 +160,7 @@ else{
             </p>
         </div>
         <div class="col-6">
-            <h2 class="alert alert-primary">Visión</h2>
+            <h2 class="text-white  py-2 btn-lg" style="background-color: rgb(102,178,255);"><b>Visión</b></h2>
             <hr>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
