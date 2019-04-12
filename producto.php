@@ -3,14 +3,14 @@
 include('conexion.php');
 include 'encabezado.php';
 $id="";
-if(isset($_GET['id'])){
+if(isset($_GET['idProducto'])){
 
-  $id = $_GET['id']; 
+  $id = $_GET['idProducto']; 
   echo $id;
-  $sql2 = "SELECT * FROM inventario WHERE nombre LIKE '%$id'  ";
+  $sql2 = "SELECT * FROM producto WHERE nombre LIKE '%$id'  ";
 }
 else {
-  $sql2 = 'SELECT * FROM inventario WHERE cantidad > 0';
+  $sql2 = 'SELECT * FROM producto WHERE existencias > 0';
 }
 $r = $conexion->query($sql2);
 if($r != false){
@@ -76,7 +76,7 @@ else{
               <td><?php echo $producto['descripcion'];  ?></td>
               <td class="alert-link alert-warning" > <strong>$<?php echo $producto['precio'];  ?>.00</strong>
                 <br>  
-                  <a href="compra.php?id=<?php echo $producto['id_producto'];?>" class="btn btn-success" title="">Comprar</a>
+                  <a href="compra.php?id=<?php echo $producto['idProducto'];?>" class="btn btn-success" title="">Comprar</a>
               </td>
 
               

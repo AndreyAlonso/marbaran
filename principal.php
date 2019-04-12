@@ -59,7 +59,7 @@ else{
     }
     ?>
 
-
+<!-- P R O M O C I O N E S-->
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -84,56 +84,18 @@ else{
   </a>
 </div>
 
-
+<!-- P R O M O C I O N E S-->
      
                  
        
             
-            
+            <br><br><br>
 
         </div>
 
         <!-- SLIDER -->
-        <div>
-            <h2 class="  text-white   py-2" style="background-color: rgb(51,255,153);"><b>Promociones más recientes!</b></h2>
-            <div class="container">
-                <div class="row">
-                    <div class ="col-lg-4 col-md-4 col-sm-12 py-4">
-                        <a href="compra.php?id=<?php echo $productos[count($productos)-1]['id_producto'];?>" title="">
-                            <div class="card" style="width: 15rem;">
-                              <img src="<?php echo "inventario\\" . $productos[count($productos)-1]['imagen']; ?>" alt="" width="200px" class="card-img-top">
-                              <div class="card-body text-center">
-                                <p> <strong><?php echo $productos[count($productos)-1]['nombre']; ?></strong> </p>
-                                <p> <?php echo $productos[count($productos)-1]['descripcion']; ?></p>
-                            </div>
-                        </a>
-                    </div>
 
-                </div>
-                <div class ="col-lg-4 col-md-4 col-sm-12 py-4">
-                    <a href="compra.php?id=<?php echo $productos[count($productos)-2]['id_producto'];?>" title="">
-                        <div class="card" style="width: 15rem;">
-                          <img src="<?php echo "inventario\\".$productos[count($productos)-2]['imagen']; ?>" alt="" width="200px" class="card-img-top">
-                          <div class="card-body text-center">
-                            <p> <strong><?php echo $productos[count($productos)-2]['nombre']; ?></strong> </p>
-                            <p> <?php echo $productos[count($productos)-2]['descripcion']; ?></p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-            <div class ="col-lg-4 col-md-4 col-sm-12 py-4">
-                <a href="compra.php?id=<?php echo $productos[count($productos)-3]['id_producto'];?>" title="">
-                    <div class="card" style="width: 15rem;">
-                      <img src="<?php echo "inventario\\" .$productos[count($productos)-3]['imagen']; ?>" alt="" width="200px" class="card-img-top">
-                      <div class="card-body text-center">
-                        <p> <strong><?php echo $productos[count($productos)-3]['nombre']; ?></strong> </p>
-                        <p> <?php echo $productos[count($productos)-3]['descripcion']; ?></p>
-                    </div>
-                </a>
-            </div>
-
-        </div>
+     
 
 
 
