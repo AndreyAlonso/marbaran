@@ -18,3 +18,8 @@ function eliminaPerfil()
 
 	}
 }
+
+function modificaPerfil(apellidoPaterno)
+{
+	alert(apellidoPaterno); 
+}

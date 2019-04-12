@@ -46,8 +46,8 @@ $nombre = "";
     <div class="col-12 bg-light border border-success text-center">
 
       <ul class="list-group">
-        <li class="list-group-item"><a href="#" class="text-info">Configuración perfil</a></li>
-        <li class="list-group-item"><a href="#" class="text-info">Modificar contraseña</a></li>
+        <li class="list-group-item"><a href="modificaCliente.php" class="text-info">Configuración perfil</a></li>
+        <li class="list-group-item"><a href="modificaPassword.php" class="text-info">Modificar contraseña</a></li>
         <li class="list-group-item"><a href="#" class="text-info">Ver historial de compras</a></li>
         <li class="list-group-item"><a href="#" class="text-info">Ver pedidos</a></li>
         <li class="list-group-item"><a href="#" onclick="eliminaPerfil()" class="text-danger">Eliminar cuenta</a></li>
