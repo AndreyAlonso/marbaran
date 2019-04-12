@@ -4,6 +4,7 @@ session_start();
 
 <html>
     <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <title>Iniciando Sesión</title>
     </head>
     <body>
@@ -30,13 +31,12 @@ if(isset($_POST['email']) && isset($_POST['password'])){
                 
             }
             else{
-                echo 'Usuario o contraseña incorrectos';
-
-                $t1 = 'Location: principal.php';
-                $t2 = $t1 . $_SESSION['pagina']; 
-                header($t2);
-             //   header('Location:principal.php');
-                return;
+                $error =  'Usuario o contraseña incorrectos';
+            //    $t1 = 'Location: ..\\';
+             //   $t2 = $t1 . $_SESSION['pagina']; 
+               // header($t2);
+               // header('Location:principal.php');
+               // return;
             }
         }
         else{
@@ -51,5 +51,10 @@ if(isset($_POST['email']) && isset($_POST['password'])){
     }
 }
 ?>
+<div class="container">
+    <br><br><br>
+    <p class="alert alert-danger"><b><?php echo $error;?></b></p>
+<a class="btn btn-info text-center" href="..\principal.php"> regresar </a>
+</div>
+
 </body>
-</html>
