@@ -15,6 +15,7 @@ if(!isset($_SESSION['usuario'])){
     <!-- Inicio de sesion -->
     <div>
     <!-- Modal -->
+
     <div class="modal fade text-warning" id="iniciaSesion" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -77,7 +78,9 @@ HTML;
 
 <?php if(!isset($_SESSION['email'])){
     echo <<< HTML1
+
     <div class="col-lg-2">
+                                                                                        <!-- MENU SESION  -->
     <i class="fas fa-user-circle h1">  </i>
     <a class="text-white" href="#" onclick="iniciaSesion()"><b>Iniciar Sesión</b></a>      
     </div>
@@ -85,14 +88,30 @@ HTML;
     <a class="text-white" href="registroCliente.php"><b>Registrar</b></a>
 
     </div>
+
 HTML1;
 }else{
+
+echo '<div class="dropdown">
+  <button class="btn btn-info  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    '. $_SESSION['email'] .'
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="perfilCliente.php">Mi perfil</a>
+    <a class="dropdown-item" href="#">Lista de compras</a>
+    <a class="dropdown-item text-danger" href="bd\cerrarsesion.php">Cerrar Sesion</a>
+    
+  </div>
+</div> ';
+
+    /*
     echo '<div class="col-lg-3">
     <p class="text-white"> ';
     echo $_SESSION['email'];
     echo '</p>';
     echo '<a class="text-white" href="bd\cerrarsesion.php" >Cerrar Sesión</a>';
     echo '</div>';
+    */
 }
 ?>
 </div>
@@ -111,9 +130,6 @@ HTML1;
 
         <li class="nav-item">
             <a class="nav-link text-white" href="historia.php">Historia |</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-white" href="perfilCliente.php">Perfil |</a>
         </li>
 
         <!--<li class="nav-item"><a class="nav-link text-white" href="#">Soporte |</a></li> -->

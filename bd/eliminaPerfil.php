@@ -2,7 +2,7 @@
 
 session_start();
 $email = $_SESSION['email'];
-//session_unset($_SESSION['email']);
+session_unset($_SESSION['email']);
 include('../conexion.php');
 
 $sql = "DELETE FROM cliente WHERE email = '$email'";
@@ -18,10 +18,10 @@ else{
 //Se cierra la sesion
 //se procede a eliminar 
 
-//$t1 = 'Location: ..\\';
-//$t2 = $t1 . $_SESSION['pagina']; 
-//header($t2)
+$t1 = 'Location: ..\\';
+$t2 = $t1 . $_SESSION['pagina']; 
+header($t2);
 
-	echo 'Se ha eliminado la cuenta';
+//	echo 'Se ha eliminado la cuenta';
 
 ?>
