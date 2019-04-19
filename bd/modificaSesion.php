@@ -16,19 +16,22 @@ $apellidoPaterno = $_POST['apellidoPaterno'];
 $apellidoMaterno = $_POST['apellidoMaterno'];
 $nombres         = $_POST['nombres'];
 $colonia         = $_POST['colonia'];
+$municipio       = $_POST['municipio'];
 $calle           = $_POST['calle'];
 $numero          = $_POST['numero'];
+$cp              = $_POST['cp'];
+$telefono        = $_POST['telefono'];
 //Generar consulta 
 $sql = "UPDATE cliente 
 SET apellidoPaterno='$apellidoPaterno', apellidoMaterno = '$apellidoMaterno', nombres = '$nombres',
-    colonia='$colonia', calle='$calle', numero='$numero' WHERE email='$email'";
+    municipio='$municipio', colonia='$colonia', calle='$calle', cp='$cp', telefono='$telefono', numero='$numero' WHERE email='$email'";
 $respuesta = $conexion->prepare($sql);
 var_dump($sql);
 if($respuesta == false)
     echo 'Hubo un problema al modificar la tupla';
 else
 {
-    //echo 'Se supone que todo bien';
+  //  echo 'Se supone que todo bien';
     $respuesta->execute();
     $dir = '../' . "perfilCliente.php";
     echo $dir;

@@ -64,10 +64,14 @@ else{
 					<p><b>Apellido Materno</b> <input type="text" class="form" name="apellidoMaterno" value="<?php echo $atributo[0]['apellidoMaterno']?>"></p>
 					<p><b>Nombres</b> <input type="text" class="form" name="nombres" value="<?php echo $atributo[0]['nombres']?>"><p>
 					<p class="bg-white text-info"><b>Configuración Domicilio</b></p>
-
+					<p><b>Municipio</b> <input type="text" class="form" name="municipio"  value="<?php echo $atributo[0]['municipio']?>"></p>
 					<p><b>Colonia</b> <input type="text" class="form" name="colonia"  value="<?php echo $atributo[0]['colonia']?>"></p>
 					<p><b>Calle</b> <input type="text" class="form" name="calle" value="<?php echo $atributo[0]['calle']?>"></p>
 					<p><b>Número</b> <input type="text" class="form" name="numero" value="<?php echo $atributo[0]['numero']?>"></p>
+					<p><b>Código Postal</b> <input type="text" class="form" name="cp"  value="<?php echo $atributo[0]['cp']?>"></p>
+					<p class="bg-white text-info"><b>Configuración Datos</b></p>
+
+					<p><b>Número telefonico</b> <input type="text" class="form" name="telefono"  value="<?php echo $atributo[0]['telefono']?>"></p>
 				</div>
 				<br>
 				<button class="btn btn-success btn-lg btn-block" type="submit">Realizar Modificación</button>

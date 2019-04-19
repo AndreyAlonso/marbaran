@@ -99,7 +99,7 @@ else{
       </div>-->
       <hr>
       <button type="submit" name="enviar" class="btn btn-success">Subir a Base de Datos</button>
-      <a class="textblanco" href="php\cerrarsesion.php" >Cerrar Sesión</a>
+      <a class="textblanco" href="..\bd\cerrarsesion.php" >Cerrar Sesión</a>
     </form>
     <hr>
 
