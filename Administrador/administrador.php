@@ -10,12 +10,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   $descripcion = $_POST['descripcion'];
   $existencias = $_POST['existencias'];
 
-
-
-  //$imagen = $_FILES['imagen']['name'];
-  ///$tmp_name = $_FILES['imagen']['tmp_name'];
-  //move_uploaded_file($tmp_name, 'inventario//'.$nombreArchivo);
-  $sql = "INSERT INTO `producto`(`idProducto`, `idProveedor`, `nombre`, `precio`, `descripcion`, `existencias`, `imagen`) VALUES (null,' ','$nombre','$precio','$descripcion','$existencias', '    ')";
+  $imagen = $_FILES['imagen']['name'];
+  $tmp_name = $_FILES['imagen']['tmp_name'];
+  move_uploaded_file($tmp_name, '..//productos//'.$imagen);
+  $sql = "INSERT INTO `producto`(`idProducto`, `idProveedor`, `nombre`, `precio`, `descripcion`, `existencias`, `imagen`) VALUES (null,' ','$nombre','$precio','$descripcion','$existencias', '$imagen')";
   $resultado = $conexion->query($sql);
 
   if($resultado == false){
@@ -45,11 +43,11 @@ else{
   <title>Administrador</title>
 </head>
 <body>
-  <div class="bg-secondary text-center text-white py-3">
-    <h1>VentasPC - Administrador</h1>
+  <div class="bg-dark text-center text-white py-3">
+    <h1 style="font-family: Arial;">Administración de Inventario</h1>
   </div>
   <hr>
-  <div class="container alert-info alert-link py-3">
+  <div class="container py-3">
     <div class="row">
       <h2 class="col-8" style="font-family: Arial;"><b>INFORMACIÓN DEL PRODUCTO</b></h2>
     <a href="adminservicios.php" title="" class="btn btn-info disabled">Modificar servicios</a>
@@ -60,13 +58,14 @@ else{
     <form action="" method="POST" accept-charset="utf-8" class="" enctype="multipart/form-data">
       <div class="row">
         <div class="col"> 
-          <label for="">Nombre del Producto</label>
+          <label for="" class="text-primary"><b>Nombre del Producto</b></label>
           <input type="text" name="nombre" required>
         </div>
       </div>
+      <hr>
       <div class="row">
         <div class="col">
-          <label>Información del Producto</label>    
+          <label class="text-primary"><b>Información del Producto</b></label>    
         </div>
         
       </div>
@@ -77,26 +76,27 @@ else{
         </div>
         
       </div>
+      <hr>
       <div class="row">
         <div class="col">
-          <label for="">Precio</label>
+          <label for=""class="text-primary"><b>Precio</b></label>
           <input type="Number" name="precio" min="0" required>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <label for="">Cantidad</label>
+          <label for="" class="text-primary"><b>Cantidad</b></label>
           <input type="Number" name="existencias" min="0" required>
         </div>
         
       </div>
-      <!--
+      
       <div class="row">
         <div class="col">
-          <input type="file" name="imagen" class="btn btn-danger py-2 disabled" required>      
+          <input type="file" name="imagen" class="btn btn-danger py-2 " required>      
         </div> 
         
-      </div>-->
+      </div>
       <hr>
       <button type="submit" name="enviar" class="btn btn-success">Subir a Base de Datos</button>
       <a class="textblanco" href="..\bd\cerrarsesion.php" >Cerrar Sesión</a>
@@ -127,7 +127,7 @@ else{
               <td scope="row"><?php echo $producto['idProducto'];  ?> </td>
               <td><?php echo $producto['nombre'];  ?></td>
               <td><?php echo $producto['descripcion'];  ?></td>
-              <td > <img src="<?php echo 'inventario\\'.$producto['imagen']; ?>" alt="" width="200px"> </td>
+              <td > <img src="..\\productos\\<?php echo $producto['imagen']?>" alt="" width="200px"> </td>
               <td> <strong><?php echo $producto['precio'];  ?></strong></td>
               <td> 
                 <a href="eliminar.php?id=<?php echo $producto['idProducto']?>" class="btn btn-danger" title="">Eliminar</a>
