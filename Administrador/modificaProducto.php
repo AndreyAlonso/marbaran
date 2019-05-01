@@ -26,19 +26,28 @@ function metodoPOST($id)
 	include('../conexion.php');
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
-		global $producto;
-		$sql = "DELETE FROM producto WHERE idProducto = '$id'";
-		$r = $conexion->exec($sql);
-		if($r != false)
-		{
-			//echo ' Se ha eliminado el producto';
-			$t1 = 'Location: administrador.php'; 
-			header('Location: administrador.php');
+		$nombre = $_POST['nombre'];
+		$precio = $_POST['precio'];
+		$descripcion = $_POST['descripcion'];
+		$cantidad = $_POST['cantidad'];
+		$imagen = $_FILES['imagen']['name'];
+		$tmp_name = $_FILES['imagen']['tmp_name'];
+		move_uploaded_file($tmp_name, '..//productos//'.$imagen);
+		$sql = "UPDATE producto SET 
+		nombre='$nombre', precio='$precio', descripcion='$descripcion', existencias='$cantidad',
+		imagen='$imagen' WHERE idProducto='$id'";
 
+		$r = $conexion->prepare($sql);
+		if($r == false){
+			die("Error al momento de insertar en la base de datos");
 		}
 		else{
-			echo 'No se pudo eliminar';
+			$r->execute();
+			echo 'todo bien';
+
+			header("Location: administrador.php");
 		}
+		
 	}
 }
 
@@ -53,8 +62,9 @@ function metodoPOST($id)
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+	<br><h2 class="col-8" style="font-family: Arial;"><b>INFORMACIÓN DEL PRODUCTO</b></h2>
 	<br>
-	<br>
+
 	<div class="container">
 		<table class="table">
 			<thead>
@@ -80,9 +90,25 @@ function metodoPOST($id)
 		</table>	
 		<hr class="bg-success">
 		<form class="form" method="POST" accept-charset="utf-8" class="" enctype="multipart/form-data">
-			<p class="alert alert-warning "><b style="font-family: Arial;">Desea eliminar este producto?</b></p>
+			<p>Nombre Producto
+				<input type="" name="nombre" value="<?php echo $producto[0]['nombre'];?> ">
+			</p>
+			<p>Caracteristicas</p>
+			<textarea type="text" name="descripcion" style="width: 340px;" rows="4" placeholder="Caracteristicas..." required> <?php echo $producto[0]['descripcion'];?> </textarea>
+			
+			<p>Precio
+				<input type="Number" name="precio" min="0" required value="<?php echo $producto[0]['precio'];?>">
+			</p>
+			<p>Cantidad
+				<input type="Number" name="cantidad" min="0" required value="<?php echo $producto[0]['existencias'];?>">
+			</p>
+			<p>Imagen
+				<input type="file" name="imagen" class="btn btn-info py-2 " value="<?php echo $producto[0]['imagen'];?>">
+			</p>
+
+
 			<a class="btn btn-warning" href="administrador.php"><b>Cancelar</b></a>
-			<button class="btn btn-danger" type="submit"><b>Eliminar</b></button>
+			<button class="btn btn-danger" type="submit"><b>Modificar</b></button>
 
 		</form>
 		

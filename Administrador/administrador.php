@@ -132,7 +132,7 @@ else{
               <td> 
                 <a href="eliminarProducto.php?id=<?php echo $producto['idProducto']?>" class="btn btn-danger" title="">Eliminar</a>
               </td>
-              <td> <a href="modificar.php?id=<?php echo $producto['idProducto']?>" class="btn btn-info" title="">Modificar</a> </td>
+              <td> <a href="modificaProducto.php?id=<?php echo $producto['idProducto']?>" class="btn btn-info" title="">Modificar</a> </td>
 
               
             </tr>
