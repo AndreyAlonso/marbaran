@@ -107,7 +107,7 @@ else{
   </div>
   <hr>
   <div class="container text-center">
-    <h2>Base de Datos</h2>
+    <h2 style="font-family:Arial, Helvetica, sans-serif;"><b>Base de Datos</b> </h2>
     <table class="table">
       <thead>
         <tr>
@@ -130,7 +130,7 @@ else{
               <td > <img src="..\\productos\\<?php echo $producto['imagen']?>" alt="" width="200px"> </td>
               <td> <strong><?php echo $producto['precio'];  ?></strong></td>
               <td> 
-                <a href="eliminar.php?id=<?php echo $producto['idProducto']?>" class="btn btn-danger" title="">Eliminar</a>
+                <a href="eliminarProducto.php?id=<?php echo $producto['idProducto']?>" class="btn btn-danger" title="">Eliminar</a>
               </td>
               <td> <a href="modificar.php?id=<?php echo $producto['idProducto']?>" class="btn btn-info" title="">Modificar</a> </td>
 

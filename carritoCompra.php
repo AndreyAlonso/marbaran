@@ -76,7 +76,7 @@ else{
               <td><?php echo $producto['descripcion'];  ?></td>
               <td class="alert-link alert-warning" > <strong>$<?php echo $producto['precio'];  ?>.00</strong>
                 <br>  
-                  <a href="compra.php?id=<?php echo $producto['idProducto'];?>" class="btn btn-success" title="">Ver producto</a>
+        
               </td>
 
               

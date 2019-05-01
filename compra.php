@@ -80,7 +80,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     <hr>
     <div class="row">
       <div class="col">
-        <img src="<?php echo "inventario\\".$productos[$idProducto]['imagen'];  ?>" alt="" width="100%">
+        <img src="<?php echo "productos\\".$productos[$idProducto]['imagen'];  ?>" alt="" width="100%">
         
         
       </div>
@@ -96,6 +96,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
         <!-- <button type="submit" class="btn btn-success text-center">Comprar</button>-->
          <a href="servicios.php?nProducto=<?php echo $nn;?>&pProducto=<?php echo $pp;?>" title="" class="btn btn-info btn-block">Comprar</a>
+          <a href="carritoCompra.php?nProducto=<?php echo $nn;?>&pProducto=<?php echo $pp;?>" title="" class="btn btn-success btn-block">Agregar al Carrito</a>
+          <br>
        </form>
 <p class="bg-secondary text-white text-center font-weight-bold py-3">Cantidad en tienda: <strong><?php echo $existencia;?></strong> </p>
      </div>
