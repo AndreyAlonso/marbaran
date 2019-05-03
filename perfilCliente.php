@@ -5,6 +5,7 @@ include 'encabezado.php';
 $email = $_SESSION['email'];
 $atributo = "";
 $nombre = "";
+
   $sql = "SELECT * FROM cliente WHERE email='$email' "; // Se obtiene la tabla del usuario
   $respuesta = $conexion->query($sql);//$conexion es la variable usada en conexion.php
   if($respuesta != false)

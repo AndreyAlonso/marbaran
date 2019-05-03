@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 11, 2019 at 08:30 PM
--- Server version: 5.6.34-log
--- PHP Version: 7.1.7
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 03-05-2019 a las 07:31:30
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `marbaranbd`
+-- Base de datos: `marbaranbd`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cliente`
+-- Estructura de tabla para la tabla `cliente`
 --
 
 CREATE TABLE `cliente` (
@@ -40,37 +40,41 @@ CREATE TABLE `cliente` (
   `cp` int(4) NOT NULL,
   `telefono` int(4) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL
+  `password` varchar(30) NOT NULL,
+  `tipo` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cliente`
+-- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`idCliente`, `apellidoPaterno`, `apellidoMaterno`, `nombres`, `municipio`, `colonia`, `calle`, `numero`, `cp`, `telefono`, `email`, `password`) VALUES
-(1, 'Hernandez', 'Alonso', 'Andrey', 'San Luis Potosi', 'Jardines del Sur', 'Amatista', 1518, 78399, 2147483647, 'andrey_hz@outlook.com', '1234'),
-(2, 'Hernandez', 'Hernandez', 'Paulina', 'San Luis Potosi', 'Jardines del Sur', 'Amatista 1518', 1518, 78399, 1234556, 'hec_boy@hotmail.com', '1010'),
-(6, 'para', 'siempre', 'Xavo', 'Soledad', 'Himno Nacional', 'Mozart', 12334545, 110291, 2147483647, 'qwerty@gmail.com', '1120');
+INSERT INTO `cliente` (`idCliente`, `apellidoPaterno`, `apellidoMaterno`, `nombres`, `municipio`, `colonia`, `calle`, `numero`, `cp`, `telefono`, `email`, `password`, `tipo`) VALUES
+(1, 'Hernandez', 'Alonso', 'Hector Andrey', 'San Luis Potosi', 'Jardines del Sur', 'Amatista', 1518, 78399, 2147483647, 'andrey_hz@outlook.com', 'zaz', 0),
+(7, ' dsds', 'dsds', 'Andrey', 'fds', 'k', 'lkl', 22, 21, 432423232, 'ejemplo@ejemplo.com', '222', 1),
+(8, 'y', 'adios', 'hola', 'san l', 'dsdad', 'calle', 1, 2021, 0, 'hola@gmail.com', '1234', 0),
+(9, 'd', 'Alonso', 'Andrey', '', '', '', 0, 0, 0, 'ulisesgomez@gmail.com', '12', 0),
+(10, 'Hernandez', 'Alonso', 'Hector Andrey', 'San Luis Potosi', 'Jardines del Sur', 'Amatista', 1518, 78399, 2147483647, 'andrey_hz@outlook.com', '123', 0);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `cliente`
+-- Indices de la tabla `cliente`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`idCliente`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `cliente`
+-- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idCliente` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;COMMIT;
+  MODIFY `idCliente` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-04-2019 a las 23:25:40
+-- Tiempo de generación: 03-05-2019 a las 07:31:42
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -43,9 +43,8 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`idProducto`, `idProveedor`, `nombre`, `precio`, `descripcion`, `existencias`, `imagen`) VALUES
-(1, 0, 'Mochila ', 256, 'mochila escolar para niÃ±o', 5, '    '),
-(2, 0, 'Caja 24 colores', 100, 'Caja con 24 colores marca Crayola + un zacapuntas ', 10, '    '),
-(3, 0, 'Juego de Geometria', 80, 'Incluye:\r\n-Regla, Escuadra, Transportador', 1, '    ');
+(13, 0, 'Mochila escolar', 799, '- 100% algodÃ³n\r\n- Con capacidad para cargar compu', 4, 'mochila.jpg'),
+(14, 0, 'Portafolio', 567, '-Portafolio tamaÃ±o carta\r\n-cubierta a prueba de a', 12, 'portafolio.jpg');
 
 --
 -- Índices para tablas volcadas
@@ -65,7 +64,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idProducto` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idProducto` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
