@@ -2,16 +2,127 @@
 
 include('conexion.php');
 include 'encabezado.php';
+$precioProducto;
+$idProducto = $_GET['idProducto'];
+$existe = false;
+$productosC = array();
+$producto;
+encuentraProducto();
+agregaProducto();
+muestraProducto();
+
+function encuentraProducto()
+{
+  global $precioProducto, $idProducto;
+  global $conexion;
+  global $idProducto;
+  $consulta = "SELECT * FROM producto WHERE idProducto='$idProducto' ";
+  $respuesta = $conexion->query($consulta);
+  if($respuesta != false)
+  {    
+    $productos = $respuesta->fetchAll(PDO::FETCH_NAMED);
+    $precioProducto =$productos[0]['precio'];
+  }
+
+}
+
+function agregaProducto()
+{
+  global $conexion, $precioProducto, $idProducto;
+  $cantidad = 1; 
+  
+  $sql = "INSERT INTO 
+  `detalleventa`(`idDetalleVenta`, `idVenta`, `idProducto`, `cantidad`, `subtotal`)
+  VALUES (null,0,'$idProducto','$cantidad','$precioProducto')";
+  $r = $conexion->query($sql);
+  if($r == false)
+    die("ERROR al insertar");
+  else
+    echo 'BIEN';
+}
+
+function muestraProducto()
+{
+  global $conexion;
+  global $productosC;
+  $sql = "SELECT * FROM detalleventa";
+  $sql2 = "SELECT * FROM producto";
+  $r = $conexion->query($sql);
+  if($r == false)
+  {
+      echo 'MAL EN MOSTRAER';
+  }
+  else{
+    echo 'bien en motrar';
+    $prod = $r->fetchAll(PDO::FETCH_NAMED);
+    $id = $prod[0]['idProducto'];
+    echo $id;
+    for($i = 0; $i < count($prod); $i++){
+      array_push($productosC, $prod[$i]['idProducto']);
+    }
+
+    $r2 = $conexion->query($sql2);
+    if($r2 != false)
+    {
+      global $productos;
+      $productos = $r2->fetchAll(PDO::FETCH_NAMED);
+
+    }
+
+  }
+}
+
+/*
+
 $id="";
 if(isset($_GET['idProducto'])){
 
   $id = $_GET['idProducto']; 
   echo $id;
-  $sql2 = "SELECT * FROM producto WHERE nombre LIKE '%$id'  ";
+  $sql2 = "SELECT * FROM producto WHERE idProducto='$id' ";
+  //1) verificar si ya existe en la lista 
+  $busca = "SELECT * FROM detalleventa WHERE idProducto = '$id'";
+  $b = $conexion->exec($busca);
+  $r = $conexion->query($sql2);
+
+  if($b == true)
+  {
+    echo 'Si hay';
+    
+
+  }
+  if($r != false) 
+  {
+    echo 'No hay productos aqui';
+    $productos = $r->fetchAll(PDO::FETCH_NAMED);
+    for($i = 0; $i  < count($productos) ; $i++)
+    {
+
+      if($idProducto == $productos[$i]['idProducto'])
+      {
+        $idProducto = $i;
+
+        $precio = $productos[$idProducto]['precio'];
+
+      }
+    }
+
+
+
+
+    $add = "INSERT INTO `detalleventa`(`idDetalleVenta`, `idVenta`, `idProducto`, `cantidad`, `subtotal`) VALUES(null,null,$id,1,$precio)";
+
+    $conexion->exec($add);
+    echo 'heyyy';
+  }
+
+
+
 }
 else {
-  $sql2 = 'SELECT * FROM producto WHERE existencias > 0';
+  //$sql2 = 'SELECT * FROM producto WHERE existencias > 0';
 }
+/*
 $r = $conexion->query($sql2);
 if($r != false){
   $productos = $r->fetchAll(PDO::FETCH_NAMED);
@@ -22,70 +133,73 @@ else{
   echo  '</div><br><br><br>';
 }
 
-
+*/
 ?>
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Productos</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Productos</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-    <!-- Estilos -->
-    <link rel="stylesheet" type="text/css" href="css/contacto.css" />
-    <link rel="stylesheet" type="text/css" href="css/Menu.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <!-- Javascript -->
-    <script type="text/javascript" src="js/codigo1.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous">
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"></script>
+  <!-- Estilos -->
+  <link rel="stylesheet" type="text/css" href="css/contacto.css" />
+  <link rel="stylesheet" type="text/css" href="css/Menu.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!-- Javascript -->
+  <script type="text/javascript" src="js/codigo1.js"></script>
 </head>
 <body class="bg-light">
-<?php 
-    if($_SERVER['REQUEST_METHOD'] == 'GET'){
-        $_SESSION['pagina'] = "producto.php";
-    }
-    ?>
-    <div class="container col-11">
-        <table class="table">
-          <thead>
-            <tr>
-             
-              <th>Imagen</th>
-              <th>Nombre</th>
-              <th>Caracteristicas</th>
-              <th>Precio</th>
+  <?php 
+  if($_SERVER['REQUEST_METHOD'] == 'GET'){
+    $_SESSION['pagina'] = "producto.php";
+  }
+  ?>
+  <div class="container col-11">
+    <table class="table">
+      <thead>
+        <tr>
 
-          </tr>
+          <th>Imagen</th>
+          <th>Nombre</th>
+          <th>Caracteristicas</th>
+          <th>Precio</th>
+
+        </tr>
       </thead>
       <tbody>
+         
         <tr>
           <?php foreach($productos as $producto):?>
+            <?php  if(in_array($producto['idProducto'],$productosC)) { ?>
             <tr>
               <td > <img src="<?php echo "productos\\".$producto['imagen']; ?>" alt="" width="200px"> </td>
               <td><?php echo $producto['nombre'];  ?></td>
               <td><?php echo $producto['descripcion'];  ?></td>
               <td class="alert-link alert-warning" > <strong>$<?php echo $producto['precio'];  ?>.00</strong>
                 <br>  
-        
-              </td>
 
-              
-              
+              </td>
+            
+
+
           </tr>
-      <?php endforeach?>
-  </tr>
-</tbody>
-</table>
+        <?php }?>
+        <?php endforeach?>
+      </tr>
+    </tbody>
+  </table>
 
 </div>
 
