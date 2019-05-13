@@ -31,11 +31,15 @@ session_start();
                         $t1 = 'Location: ..\\';
                         $t2 = $t1 . 'Administrador\administrador.php';
 
+
                     }
                     else{
 
                         $t1 = 'Location: ..\\';
                         $t2 = $t1 . $_SESSION['pagina']; 
+                        /*CODIGO DE EMERGENCIA PARA ELIMINAR CARRITO DE COMPRAS*/
+                        $elimina = "DELETE FROM detalleventa";
+                        $consulta = $conexion->query($elimina);
 
                     }
                     header($t2);

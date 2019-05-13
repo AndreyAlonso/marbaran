@@ -5,7 +5,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $filtro = $_POST['filtro'];
     echo $filtro;
-    header('Location:producto.php?id='. $filtro);
+    $producto = 
+    header('Location:producto.php?busqueda='. $filtro);
 }
 ?>
 

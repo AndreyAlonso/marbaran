@@ -18,6 +18,7 @@ if($r != false)
     if($idProducto == $productos[$i]['idProducto'])
     {
       $idProducto = $i;
+
       $existencia = $productos[$idProducto]['existencias'];
 
     }
@@ -96,7 +97,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
         <!-- <button type="submit" class="btn btn-success text-center">Comprar</button>-->
          <a href="ticket.php?nProducto=<?php echo $nn;?>&pProducto=<?php echo $pp;?>" title="" class="btn btn-info btn-block">Comprar</a>
-          <a href="carritoCompra.php?nProducto=<?php echo $nn;?>&pProducto=<?php echo $pp;?>" title="" class="btn btn-success btn-block disabled">Agregar al Carrito</a>
+          <a href="carritoCompra.php?idProducto=<?php echo $_GET['id'];?>" title="" class="btn btn-success btn-block">Agregar al Carrito</a>
           <br>
        </form>
 <p class="bg-secondary text-white text-center font-weight-bold py-3">Cantidad en tienda: <strong><?php echo $existencia;?></strong> </p>
