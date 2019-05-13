@@ -192,20 +192,17 @@ echo '</div>';
 <div class="bg-dark">
     <ul class="nav justify-content-end text-white">
         <li class="nav-item">
-            <a class="nav-link text-white" href="principal.php"><b>Principal |</b></a>
+            <a class="nav-link text-white" href="principal.php"><b>Inicio |</b></a>
         </li>
         <li class="nav-item">
             <a class="nav-link text-white" href="contacto.php">Contacto |</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" href="producto.php">Producto |</a>
+            <a class="nav-link text-white" href="producto.php">Productos |</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link text-white" href="historia.php">Historia |</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-white" href="prueba.php?band=exampleModalCenter">Modal |</a>
+            <a class="nav-link text-white" href="historia.php"> Nuestra Historia |</a>
         </li>
 
         <!--<li class="nav-item"><a class="nav-link text-white" href="#">Soporte |</a></li> -->

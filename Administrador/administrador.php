@@ -47,6 +47,8 @@ else{
     <h1 style="font-family: Arial;">Administración de Inventario</h1>
   </div>
   <hr>
+    <a class="textblanco align-content-right" href="..\bd\cerrarsesion.php">Cerrar Sesión</a>
+  <hr>
   <div class="container py-3">
     <div class="row">
       <h2 class="col-8" style="font-family: Arial;"><b>INFORMACIÓN DEL PRODUCTO</b></h2>

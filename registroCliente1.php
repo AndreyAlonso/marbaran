@@ -13,23 +13,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   $numero          = $_POST['numero'];
   $cp              = $_POST['cp'];
   $telefono        = $_POST['telefono'];
-  if($email != "")
-  {
-    $sql = "INSERT INTO `cliente`(`idCliente`, `apellidoPaterno`, `apellidoMaterno`, `nombres`, 
-    `municipio`, `colonia`, `calle`, `numero`, `cp`, `telefono`, `email`, `password`) 
-    VALUES (null,'$apellidoPaterno','$apellidoMaterno','$nombres','$municipio','$colonia',
-    '$calle','$numero','$cp' ,'$telefono' ,'$email', '$password')";
-    $resultado = $conexion->query($sql);
-    if($resultado == false){
-      die("Error al momento de insertar en la base de datos");
-    }
-    else
-    {
-      header('Location:principal.php');            
-    }
+  $sql = "INSERT INTO `cliente`(`idCliente`, `apellidoPaterno`, `apellidoMaterno`, `nombres`, 
+            `municipio`, `colonia`, `calle`, `numero`, `cp`, `telefono`, `email`, `password`) 
+  VALUES (null,'$apellidoPaterno','$apellidoMaterno','$nombres','$municipio','$colonia',
+'$calle','$numero','$cp' ,'$telefono' ,'$email', '$password')";
+  $resultado = $conexion->query($sql);
+  if($resultado == false){
+    die("Error al momento de insertar en la base de datos");
   }
-  
-  
+  else
+  {
+    //Aquí nos dirigimos a pagina principal del usuario
+    header('Location:principal.php');            
+  }
 }
 ?>
 <!doctype html>
@@ -44,38 +40,47 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
   <title>Registrar</title>
 </head>
-<body class="">
+<body class="bg-secondary">
+  <br>
 
-  <div class="container ">
-    <h1 style="font-family: arial"><b>Crear cuenta</b></h1>
+  <div class="container border border-secondary bg-light">
+    <br>
+    <h1 style="font-family: arial"><b>Complete todos los campos</b></h1>
     <hr>
-    <form method="GET">
+    <form method="POST">
+        <hr class="bg-info">
       <div class="form-group">
-        <p><b>Tu nombre</b></p>
-        <div class="form">
-          <input type="text" class="form-control-plaintext col-lg-4 col-md-4 col-sm-12" 
-                 name="nombres" placeholder="Nombres" style="border-bottom: thick double #32a1ce;">
-          <input type="text" class="form-control-plaintext col-lg-4 col-md-4 col-sm-12" 
-                 name="apellidoPaterno" placeholder="Apellido Paterno" style="border-bottom: thick double #32a1ce;">
-          <input type="text" class="form-control-plaintext col-lg-4 col-md-4 col-sm-12" 
-                 name="apellidoMaterno" placeholder="Apellido Materno" style="border-bottom: thick double #32a1ce;">
-        </div>
-        <hr>
-        <P><b>Correo Electronico</b></P>
         <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="ejemplo@marbaran.com">
       </div>
       <div class="form-group">
         <input type="password" class="form-control" name="password" placeholder="contraseña">
       </div>
-    <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
-        <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
-        <li class="page-item"><a class="page-link" href="registroCliente2.php? type="submit">Siguiente</a></li>
-      </ul>
-       </form>
-    </nav>
-  </div>
+      <hr class="bg-info">
+      <div class="form-inline">
+        <input type="text" class="form-control col-4" name="apellidoPaterno" placeholder="Apellido Paterno">
+        <input type="text" class="form-control col-4" name="apellidoMaterno" placeholder="Apellido Materno">
+        <input type="text" class="form-control col-4" name="nombres" placeholder="Nombres">
+      </div>
+      <hr class="bg-info">
+      <h3>Dirección Personal</h3>
+         <div class="form-inline">
+        <input type="text" class="form-control col-4" name="municipio" placeholder="Municipio">
+        <input type="text" class="form-control col-4" name="colonia" placeholder="Colonia">
+        <input type="text" class="form-control col-4" name="calle" placeholder="Calle">
+        <input type="text" class="form-control col-4" name="numero" placeholder="Número">
+        <input type="text" class="form-control col-4" name="cp" placeholder="Código Postal">
+      </div>
+      <hr>
+      <div class="form-group">
+        <input type="text" class="form-control" name="telefono" placeholder="(444) 429 2590">
+      </div>
+      <hr>
 
+      <button type="submit" class="btn btn-outline-success btn-lg btn-block "><b>Registrar</b></button>
+
+    </form>
+ <br>
+  </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -84,3 +89,4 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
+
