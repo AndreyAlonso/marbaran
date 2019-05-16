@@ -7,9 +7,37 @@ $idProducto = $_GET['idProducto'];
 $existe = false;
 $productosC = array();
 $producto;
-encuentraProducto();
-agregaProducto();
-muestraProducto();
+$total = 0; 
+$num_rows;
+
+ 
+if($idProducto == 0)
+{
+  global $conexion;
+
+  $res = $conexion->prepare('SELECT COUNT(*) FROM detalleventa');
+  $res->execute();
+  $num_rows = $res->fetchColumn();
+  //echo $num_rows;
+  if($num_rows > 0)
+  {
+   // encuentraProducto();
+   // agregaProducto();
+    muestraProducto();
+  }
+  
+
+}
+else{
+
+  encuentraProducto();
+    agregaProducto();
+    muestraProducto();
+    $res = $conexion->prepare('SELECT COUNT(*) FROM detalleventa');
+  $res->execute();
+  $num_rows = $res->fetchColumn();
+}
+
 
 function encuentraProducto()
 {
@@ -37,14 +65,16 @@ function agregaProducto()
   $r = $conexion->query($sql);
   if($r == false)
     die("ERROR al insertar");
-  else
-    echo 'BIEN';
+  //else
+    //echo 'BIEN';
 }
 
 function muestraProducto()
 {
   global $conexion;
   global $productosC;
+  global $total;
+  $total = 0;
   $sql = "SELECT * FROM detalleventa";
   $sql2 = "SELECT * FROM producto";
   $r = $conexion->query($sql);
@@ -53,12 +83,13 @@ function muestraProducto()
     echo 'MAL EN MOSTRAER';
   }
   else{
-    echo 'bien en motrar';
+   // echo 'bien en motrar';
     $prod = $r->fetchAll(PDO::FETCH_NAMED);
     $id = $prod[0]['idProducto'];
-    echo $id;
+  //  echo $id;
     for($i = 0; $i < count($prod); $i++){
       array_push($productosC, $prod[$i]['idProducto']);
+    
     }
 
     $r2 = $conexion->query($sql2);
@@ -181,13 +212,14 @@ else{
       <tbody>
        
         <tr>
-          <?php foreach($productos as $producto):?>
+          <?php if($num_rows > 0){ foreach($productos as $producto):?>
             <?php  if(in_array($producto['idProducto'],$productosC)) { ?>
               <tr>
                 <td > <img src="<?php echo "productos\\".$producto['imagen']; ?>" alt="" width="200px"> </td>
                 <td><?php echo $producto['nombre'];  ?></td>
                 <td><?php echo $producto['descripcion'];  ?></td>
-                <td class="alert-link alert-warning" > <strong>$<?php echo $producto['precio'];  ?>.00</strong>
+                <td class="alert-link alert-warning" > <strong>$<?php echo $producto['precio'];
+                $total = $total +$producto['precio'];   ?>.00</strong>
                   <br>  
 
                 </td>
@@ -196,7 +228,11 @@ else{
 
               </tr>
             <?php }?>
-          <?php endforeach?>
+          <?php endforeach; }
+            else{
+              echo '<br><br><br><p class="alert alert-success ">Carrito de compras vacio</p><br><br><br>';
+            }
+                 ?>
         </tr>
       </tbody>
     </table>
@@ -204,7 +240,7 @@ else{
   </div>
   <br>
   <div class="container">   
-    <button class="btn btn-block btn-success py-3"> <b>Realizar Compra</b></button></div>
+    <a class="btn btn-block btn-success py-3" href="ticket.php?pProducto=<?php echo $total;?>"> <b>Realizar Compra</b></a></div>
     <br>
     <br>
 

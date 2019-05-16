@@ -172,7 +172,7 @@ echo '<div class="dropdown">
 </button>
 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="perfilCliente.php">Mi perfil</a>
-    <a class="dropdown-item" href="#">Lista de compras</a>
+    <a class="dropdown-item" href="carritoCompra.php?idProducto=0">Lista de compras</a>
     <a class="dropdown-item text-danger" href="bd\cerrarsesion.php">Cerrar Sesion</a>
     
 </div>

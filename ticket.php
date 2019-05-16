@@ -1,5 +1,11 @@
 <?php
 session_start();
+if($_SERVER['REQUEST_METHOD'] == 'GET')
+{
+	include('conexion.php');
+    $elimina = "DELETE FROM detalleventa";
+	$consulta = $conexion->query($elimina);
+}
 include 'conexion.php';
 $email = $_SESSION['email'];
 $atributo = "";

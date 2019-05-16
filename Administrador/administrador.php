@@ -1,6 +1,8 @@
 <?php
 
 include('../conexion.php');
+session_start();
+
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 
@@ -43,29 +45,29 @@ else{
   <title>Administrador</title>
 </head>
 <body>
-  <div class="bg-dark text-center text-white py-3">
-    <h1 style="font-family: Arial;">Administración de Inventario</h1>
+  <div class="bg-light border-dark text-center text-success py-3">
+    <h2 style="font-family: Arial;">Bienvenido <?php echo $_SESSION['email']; ?></h2>
+    <p>*** Ahora está en modo Administrador ***</p>
   </div>
   <hr>
   <div class="container py-3">
     <div class="row">
-      <h2 class="col-8" style="font-family: Arial;"><b>INFORMACIÓN DEL PRODUCTO</b></h2>
-    <a href="adminservicios.php" title="" class="btn btn-info disabled">Modificar servicios</a>
-    <a href="promociones.php" title="" class="btn btn-info ml-2 disabled">Modificar promociones</a>
+      <h2 class="col-10" style="font-family: Arial;"><b>INFORMACIÓN DEL PRODUCTO</b></h2>
+    <a class="btn btn-secondary" href="..\bd\cerrarsesion.php" ><b>Cerrar Sesión</b></a>
     </div>
     
     <hr>
     <form action="" method="POST" accept-charset="utf-8" class="" enctype="multipart/form-data">
       <div class="row">
         <div class="col"> 
-          <label for="" class="text-primary"><b>Nombre del Producto</b></label>
+          <label for="" class="text-secondary"><b>Nombre del Producto</b></label>
           <input type="text" name="nombre" required>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col">
-          <label class="text-primary"><b>Información del Producto</b></label>    
+          <label class="text-secondary"><b>Información del Producto</b></label>    
         </div>
         
       </div>
@@ -79,13 +81,13 @@ else{
       <hr>
       <div class="row">
         <div class="col">
-          <label for=""class="text-primary"><b>Precio</b></label>
+          <label for=""class="text-secondary"><b>Precio</b></label>
           <input type="Number" name="precio" min="0" required>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <label for="" class="text-primary"><b>Cantidad</b></label>
+          <label for="" class="text-secondary"><b>Cantidad</label>
           <input type="Number" name="existencias" min="0" required>
         </div>
         
@@ -93,13 +95,13 @@ else{
       
       <div class="row">
         <div class="col">
-          <input type="file" name="imagen" class="btn btn-danger py-2 " required>      
+          <input type="file" name="imagen" class="btn btn-info py-2 " required>      
         </div> 
         
       </div>
       <hr>
-      <button type="submit" name="enviar" class="btn btn-success">Subir a Base de Datos</button>
-      <a class="textblanco" href="..\bd\cerrarsesion.php" >Cerrar Sesión</a>
+      <button type="submit" name="enviar" class="btn btn-success btn-block py-3"><b class="h3">Subir a Base de Datos</b></button>
+      
     </form>
     <hr>
 
