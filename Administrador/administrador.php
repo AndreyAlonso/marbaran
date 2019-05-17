@@ -50,6 +50,8 @@ else{
     <p>*** Ahora está en modo Administrador ***</p>
   </div>
   <hr>
+    <a class="textblanco align-content-right" href="..\bd\cerrarsesion.php">Cerrar Sesión</a>
+  <hr>
   <div class="container py-3">
     <div class="row">
       <h2 class="col-10" style="font-family: Arial;"><b>INFORMACIÓN DEL PRODUCTO</b></h2>

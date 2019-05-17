@@ -2,16 +2,16 @@
 include('conexion.php');
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-  $email           = $_POST['email'];
-  $password        = $_POST['password'];
   $apellidoPaterno = $_POST['apellidoPaterno'];
   $apellidoMaterno = $_POST['apellidoMaterno'];
   $nombres         = $_POST['nombres'];
-  $municipio       = $_POST['municipio'];
-  $colonia         = $_POST['colonia'];
+  $email           = $_POST['email'];
+  $password        = $_POST['password'];
   $calle           = $_POST['calle']; 
   $numero          = $_POST['numero'];
+  $colonia         = $_POST['colonia'];
   $cp              = $_POST['cp'];
+  $municipio       = $_POST['municipio'];
   $telefono        = $_POST['telefono'];
   $sql = "INSERT INTO `cliente`(`idCliente`, `apellidoPaterno`, `apellidoMaterno`, `nombres`, 
             `municipio`, `colonia`, `calle`, `numero`, `cp`, `telefono`, `email`, `password`) 
@@ -23,8 +23,23 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   }
   else
   {
+<<<<<<< HEAD
     //Aquí nos dirigimos a pagina principal del usuario
     header('Location:principal.php');            
+=======
+    $sql = "INSERT INTO `cliente`(`idCliente`, `apellidoPaterno`, `apellidoMaterno`, `nombres`, 
+    `municipio`, `colonia`, `calle`, `numero`, `cp`, `telefono`, `email`, `password`) 
+    VALUES (null,'$apellidoPaterno','$apellidoMaterno','$nombres','$municipio','$colonia',
+    '$calle','$numero','$cp' ,'$telefono' ,'$email', '$password')";
+    $resultado = $conexion->query($sql);
+    if($resultado == false){
+      die("Error al momento de insertar en la base de datos");
+    }
+    else
+    {
+          header('Location:principal.php');            
+    }
+>>>>>>> 44cc68564432338e67694ad24cc5d069e64fe4b8
   }
 }
 ?>
@@ -48,7 +63,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     <h1 style="font-family: arial"><b>Complete todos los campos</b></h1>
     <hr>
     <form method="POST">
+<<<<<<< HEAD
         <hr class="bg-info">
+=======
+      <hr class="bg-info">
+>>>>>>> 44cc68564432338e67694ad24cc5d069e64fe4b8
       <div class="form-group">
         <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="ejemplo@marbaran.com">
       </div>
@@ -63,23 +82,41 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
       </div>
       <hr class="bg-info">
       <h3>Dirección Personal</h3>
+<<<<<<< HEAD
          <div class="form-inline">
         <input type="text" class="form-control col-4" name="municipio" placeholder="Municipio">
         <input type="text" class="form-control col-4" name="colonia" placeholder="Colonia">
         <input type="text" class="form-control col-4" name="calle" placeholder="Calle">
         <input type="text" class="form-control col-4" name="numero" placeholder="Número">
         <input type="text" class="form-control col-4" name="cp" placeholder="Código Postal">
+=======
+      <div class="form-inline">
+      <input type="text" class="form-control col-4" name="calle" placeholder="Calle">
+        <input type="text" class="form-control col-4" name="numero" placeholder="Número">
+        <input type="text" class="form-control col-4" name="colonia" placeholder="Colonia">
+        <input type="text" class="form-control col-4" name="cp" placeholder="Código Postal">
+        <input type="text" class="form-control col-4" name="municipio" placeholder="Municipio">
+        
+>>>>>>> 44cc68564432338e67694ad24cc5d069e64fe4b8
       </div>
       <hr>
       <div class="form-group">
         <input type="text" class="form-control" name="telefono" placeholder="(444) 429 2590">
       </div>
       <hr>
+<<<<<<< HEAD
 
       <button type="submit" class="btn btn-outline-success btn-lg btn-block "><b>Registrar</b></button>
 
     </form>
  <br>
+=======
+
+      <button type="submit" class="btn btn-outline-success btn-lg btn-block "><b>Registrar</b></button>
+
+    </form>
+    <br>
+>>>>>>> 44cc68564432338e67694ad24cc5d069e64fe4b8
   </div>
 
   <!-- Optional JavaScript -->

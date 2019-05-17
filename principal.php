@@ -113,23 +113,16 @@ else{
         <div class="col-6">
             <h2 class="text-white  py-2 btn-lg" style="background-color: rgb(102,178,255);"><b>Misión</b></h2>
             <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <p>”Aprovechar la tecnología y la experiencia de nuestros empleados 
+            para ofrecer a los consumidores la mejor experiencia de compra en internet”
             </p>
         </div>
         <div class="col-6">
             <h2 class="text-white  py-2 btn-lg" style="background-color: rgb(102,178,255);"><b>Visión</b></h2>
             <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <p>”Ser la empresa más centrada en el cliente del mundo, 
+            donde los clientes pueden descubrir cualquier cosa que puedan querer comprar online, 
+            y comprometerse a ofrecer los precios más bajos posibles”
             </p>
         </div>
     </div>
