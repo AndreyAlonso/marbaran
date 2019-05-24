@@ -9,8 +9,9 @@ $productosC = array();
 $producto;
 $total = 0; 
 $num_rows;
+$vacio;
 
- 
+
 if($idProducto == 0)
 {
   global $conexion;
@@ -31,9 +32,9 @@ if($idProducto == 0)
 else{
 
   encuentraProducto();
-    agregaProducto();
-    muestraProducto();
-    $res = $conexion->prepare('SELECT COUNT(*) FROM detalleventa');
+  agregaProducto();
+  muestraProducto();
+  $res = $conexion->prepare('SELECT COUNT(*) FROM detalleventa');
   $res->execute();
   $num_rows = $res->fetchColumn();
 }
@@ -89,7 +90,7 @@ function muestraProducto()
   //  echo $id;
     for($i = 0; $i < count($prod); $i++){
       array_push($productosC, $prod[$i]['idProducto']);
-    
+
     }
 
     $r2 = $conexion->query($sql2);
@@ -210,7 +211,7 @@ else{
         </tr>
       </thead>
       <tbody>
-       
+
         <tr>
           <?php if($num_rows > 0){ foreach($productos as $producto):?>
             <?php  if(in_array($producto['idProducto'],$productosC)) { ?>
@@ -220,35 +221,46 @@ else{
                 <td><?php echo $producto['descripcion'];  ?></td>
                 <td class="alert-link alert-warning" > <strong>$<?php echo $producto['precio'];
                 $total = $total +$producto['precio'];   ?>.00</strong>
-                  <br>  
+                <br>  
 
-                </td>
-                
+              </td>
 
 
-              </tr>
-            <?php }?>
-          <?php endforeach; }
-            else{
-              echo '<br><br><br><p class="alert alert-success ">Carrito de compras vacio</p><br><br><br>';
-            }
-                 ?>
-        </tr>
-      </tbody>
-    </table>
 
-  </div>
-  <br>
-  <div class="container">   
-    <a class="btn btn-block btn-success py-3" href="ticket.php?pProducto=<?php echo $total;?>"> <b>Realizar Compra</b></a></div>
-    <br>
-    <br>
+            </tr>
+          <?php }
 
-    <?php include 'pie.php';?>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-  </body>
-  </html>
+
+          ?>
+        <?php endforeach; 
+        echo '         </tr>
+        </tbody>
+        </table>
+
+        </div>
+        <br>
+
+        <br>
+        <br><div class="container">   
+        <a class="btn btn-block btn-success py-3" href="ticket.php?pProducto=<?php echo $total;?>"> <b>Realizar Compra</b></a></div> <br>';
+      }
+      else{
+        echo '  </tr>
+        </tbody>
+        </table>
+        <br><br><br><br><h2 class="alert alert-success align-text-bottom py-5 text-center"><b>
+        El carrito de compras esta vacio
+        </b></h2><br><br><br>
+        </div>';
+      }
+      ?>
+
+      <br><br><br>
+      <?php include 'pie.php';?>
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    </body>
+    </html>
