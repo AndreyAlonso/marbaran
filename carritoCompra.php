@@ -3,31 +3,55 @@
 include('conexion.php');
 include 'encabezado.php';
 $precioProducto;
-$idProducto = $_GET['idProducto'];
+$idProducto = "";
+$elimina ="";
 $existe = false;
 $productosC = array();
 $producto;
 $total = 0; 
-$num_rows;
+$num_rows = 0;
 $vacio;
-
-
-if($idProducto == 0)
+if(isset($_GET['elimina']))
 {
   global $conexion;
 
+  $elimina = $_GET['elimina'];
+  $sql = "DELETE FROM detalleventa WHERE idProducto='$elimina'";
+  $res = $conexion->exec($sql);
   $res = $conexion->prepare('SELECT COUNT(*) FROM detalleventa');
   $res->execute();
   $num_rows = $res->fetchColumn();
-  //echo $num_rows;
+    //echo $num_rows;
   if($num_rows > 0)
   {
-   // encuentraProducto();
-   // agregaProducto();
+     // encuentraProducto();
+     // agregaProducto();
     muestraProducto();
   }
   
+  
 
+}
+
+
+
+if(isset($_GET['idProducto']))
+{
+  global $conexion;
+  global $idProducto;
+  $idProducto = $_GET['idProducto'];
+  if($idProducto == 0)
+  {
+   $res = $conexion->prepare('SELECT COUNT(*) FROM detalleventa');
+   $res->execute();
+   $num_rows = $res->fetchColumn();
+    //echo $num_rows;
+   if($num_rows > 0)
+   {
+     // encuentraProducto();
+     // agregaProducto();
+    muestraProducto();
+  }
 }
 else{
 
@@ -37,6 +61,10 @@ else{
   $res = $conexion->prepare('SELECT COUNT(*) FROM detalleventa');
   $res->execute();
   $num_rows = $res->fetchColumn();
+}
+
+
+
 }
 
 
@@ -219,10 +247,12 @@ else{
                 <td > <img src="<?php echo "productos\\".$producto['imagen']; ?>" alt="" width="200px"> </td>
                 <td><?php echo $producto['nombre'];  ?></td>
                 <td><?php echo $producto['descripcion'];  ?></td>
-                <td class="alert-link alert-warning" > <strong>$<?php echo $producto['precio'];
+                <td class="alert-link  text-center " > <strong>$<?php echo $producto['precio'];
                 $total = $total +$producto['precio'];   ?>.00</strong>
-                <br>  
 
+                <br>  
+                <br>
+                <a href="carritoCompra.php?elimina=<?php echo $producto['idProducto'];?>" class="btn btn-outline-danger">Eliminar de la lista</a>
               </td>
 
 

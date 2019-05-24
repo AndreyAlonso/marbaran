@@ -176,7 +176,7 @@ echo '<div class="dropdown">
     <a class="dropdown-item text-danger" href="bd\cerrarsesion.php">Cerrar Sesion</a>
     
 </div>
-<a href="carritoCompra.php?idProducto=0"><i class="fas fa-shopping-cart text-white"></i></a> 
+<a href="carritoCompra.php?idProducto=0" title="ver carrito de compras"><i class="fas fa-shopping-cart text-white "></i></a> 
 </div>';
 
 /*
