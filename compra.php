@@ -5,30 +5,23 @@ $productos = "";
 $existencia = "";
 //if($_SERVER['REQUEST_METHOD'] == 'GET'){
 $idProducto = $_GET['id'];
-
 $sql2 = "SELECT * FROM producto WHERE idProducto = '$idProducto'";
-
 $r = $conexion->query($sql2);
 if($r != false)
 {
   $productos = $r->fetchAll(PDO::FETCH_NAMED);
   for($i = 0; $i  < count($productos) ; $i++)
   {
-
     if($idProducto == $productos[$i]['idProducto'])
     {
       $idProducto = $i;
-
       $existencia = $productos[$idProducto]['existencias'];
-
     }
   }
-
 }
 else{
   echo 'Hubo un problema';
 }
-
 $nn  = $productos[$idProducto]['nombre'];
 $_SESSION['nombre'] = $productos[$idProducto]['nombre'];
  //echo "id = $id <br> nombre = $nn <br>";
@@ -39,15 +32,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   $_SESSION['nombre'] = $productos[$idProducto]['nombre'];
   $_SESSION['nombre'] = $productos[$idProducto]['nombre'];
   $_SESSION['precio'] = $productos[$idProducto]['precio'];
-
  // $link = "Location:formadePago.php?id=SIN SERVICIO &precioS=NA &nProducto=" . $nn;
  // header($link);
-
  // $t1 = 'Location:formadePago.php';
   //$t2 = $t1 . "?id=" . $id;
  // header($t2);
 }
-
 ?>
 
 <!doctype html>
@@ -140,10 +130,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   $_SESSION['nProducto'] = $productos[$id]['nombre'];
   $_SESSION['nombreProducto'] = $productos[$id]['nombre'];
   $_SESSION['precio'] = $productos[$id]['precio'];
-
   $link = "Location:formadePago.php?id=SIN SERVICIO &precioS=NA &nProducto=" . $nn;
   header($link);
-
  // $t1 = 'Location:formadePago.php';
   //$t2 = $t1 . "?id=" . $id;
  // header($t2);

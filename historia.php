@@ -1,3 +1,7 @@
+<!-- 
+    Ventana:    historia.php
+    Ventana html que muestra la vision y la historia de la empresa
+ -->
 <!doctype html>
 <html lang="en">
 

@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Ventana carritoCompra.php
+ * Tablas:  producto, detalleventa
+ * 
+ * Se guarda en la tabla detalleventa el producto que el usuario agrego desde compra.php
+ */
 include('conexion.php');
 include 'encabezado.php';
 $precioProducto;
@@ -14,7 +19,6 @@ $vacio;
 if(isset($_GET['elimina']))
 {
   global $conexion;
-
   $elimina = $_GET['elimina'];
   $sql = "DELETE FROM detalleventa WHERE idProducto='$elimina'";
   $res = $conexion->exec($sql);
@@ -30,11 +34,7 @@ if(isset($_GET['elimina']))
   }
   
   
-
 }
-
-
-
 if(isset($_GET['idProducto']))
 {
   global $conexion;
@@ -54,7 +54,6 @@ if(isset($_GET['idProducto']))
   }
 }
 else{
-
   encuentraProducto();
   agregaProducto();
   muestraProducto();
@@ -62,12 +61,7 @@ else{
   $res->execute();
   $num_rows = $res->fetchColumn();
 }
-
-
-
 }
-
-
 function encuentraProducto()
 {
   global $precioProducto, $idProducto;
@@ -80,10 +74,12 @@ function encuentraProducto()
     $productos = $respuesta->fetchAll(PDO::FETCH_NAMED);
     $precioProducto =$productos[0]['precio'];
   }
-
 }
-
-function agregaProducto()
+/**
+ * funcion agregaProducto()
+ * Se agrega el producto a la tabla detalleventa
+ */
+function agregaProducto() 
 {
   global $conexion, $precioProducto, $idProducto;
   $cantidad = 1; 
@@ -97,7 +93,6 @@ function agregaProducto()
   //else
     //echo 'BIEN';
 }
-
 function muestraProducto()
 {
   global $conexion;
@@ -118,25 +113,18 @@ function muestraProducto()
   //  echo $id;
     for($i = 0; $i < count($prod); $i++){
       array_push($productosC, $prod[$i]['idProducto']);
-
     }
-
     $r2 = $conexion->query($sql2);
     if($r2 != false)
     {
       global $productos;
       $productos = $r2->fetchAll(PDO::FETCH_NAMED);
-
     }
-
   }
 }
-
 /*
-
 $id="";
 if(isset($_GET['idProducto'])){
-
   $id = $_GET['idProducto']; 
   echo $id;
   $sql2 = "SELECT * FROM producto WHERE idProducto='$id' ";
@@ -144,12 +132,10 @@ if(isset($_GET['idProducto'])){
   $busca = "SELECT * FROM detalleventa WHERE idProducto = '$id'";
   $b = $conexion->exec($busca);
   $r = $conexion->query($sql2);
-
   if($b == true)
   {
     echo 'Si hay';
     
-
   }
   if($r != false) 
   {
@@ -157,27 +143,16 @@ if(isset($_GET['idProducto'])){
     $productos = $r->fetchAll(PDO::FETCH_NAMED);
     for($i = 0; $i  < count($productos) ; $i++)
     {
-
       if($idProducto == $productos[$i]['idProducto'])
       {
         $idProducto = $i;
-
         $precio = $productos[$idProducto]['precio'];
-
       }
     }
-
-
-
-
     $add = "INSERT INTO `detalleventa`(`idDetalleVenta`, `idVenta`, `idProducto`, `cantidad`, `subtotal`) VALUES(null,null,$id,1,$precio)";
-
     $conexion->exec($add);
     echo 'heyyy';
   }
-
-
-
 }
 else {
   //$sql2 = 'SELECT * FROM producto WHERE existencias > 0';
@@ -192,7 +167,6 @@ else{
   echo  'Ha ocurrido un problema con la base de datos';
   echo  '</div><br><br><br>';
 }
-
 */
 ?>
 <!doctype html>
@@ -259,17 +233,13 @@ else{
 
             </tr>
           <?php }
-
-
           ?>
         <?php endforeach; 
         echo '         </tr>
         </tbody>
         </table>
-
         </div>
         <br>
-
         <br>
         <br><div class="container">   
         <a class="btn btn-block btn-success py-3" href="ticket.php?pProducto=<?php echo $total;?>"> <b>Realizar Compra</b></a></div> <br>';
