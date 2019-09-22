@@ -159,7 +159,7 @@ echo <<< HTML1
     <a class="text-white" href="#" onclick="iniciaSesion()"><b>Iniciar Sesión</b></a>      
 </div>
 <div class="col-lg-2 ">
-    <a class="text-white" href="registroCliente1.php"><b>Registrar</b></a>
+    <a class="text-white" href="registroCliente.php"><b>Registrar</b></a>
 
 </div>
 

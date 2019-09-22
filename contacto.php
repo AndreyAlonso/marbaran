@@ -49,21 +49,21 @@
       <img class="card-img-top" src="imagenes/wpp.jpg" alt="Card image cap">
       <div class="card-body text-center">
         <p> <strong>Contacto Whatsapp</strong> </p>
-        <p> 44 44 29 25 90</p>
+        <p> +52 1 44 44 29 25 90</p>
     </div>
     </div>
         
     </div>
-    <div class ="col-4 py-4">
-        <div class="card" style="width: 22rem;">
-      <img class="card-img-top" src="imagenes/youtube.jpg" alt="Card image cap">
-      <div class="card-body text-center">
-        <p> <strong>Siguenos en YouTube</strong> </p>
-        <a href="#" title="" class="nav-link">https:://www.youtube.com/marbaran</a>
-    </div>
-    </div>
-        
-    </div>
+        <!-- <div class ="col-4 py-4">
+            <div class="card" style="width: 22rem;">
+                <img class="card-img-top" src="imagenes/youtube.jpg" alt="Card image cap">
+            <div class="card-body text-center">
+                <p> <strong>Siguenos en YouTube</strong> </p>
+                <a href="#" title="" class="nav-link">https:://www.youtube.com/marbaran</a>
+            </div>
+            </div>
+            
+        </div> -->
         
 
 

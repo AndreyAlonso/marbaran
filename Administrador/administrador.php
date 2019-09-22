@@ -5,17 +5,20 @@ session_start();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
+  $nombre       = $_POST['nombre'];
+  $precio       = $_POST['precio'];
+  $descripcion  = $_POST['descripcion'];
+  $existencias  = $_POST['existencias'];
 
-
-  $nombre = $_POST['nombre'];
-  $precio = $_POST['precio'];
-  $descripcion = $_POST['descripcion'];
-  $existencias = $_POST['existencias'];
-
-  $imagen = $_FILES['imagen']['name'];
-  $tmp_name = $_FILES['imagen']['tmp_name'];
+  $imagen       = $_FILES['imagen']['name'];
+  $tmp_name     = $_FILES['imagen']['tmp_name'];
+  
   move_uploaded_file($tmp_name, '..//productos//'.$imagen);
-  $sql = "INSERT INTO `producto`(`idProducto`, `idProveedor`, `nombre`, `precio`, `descripcion`, `existencias`, `imagen`) VALUES (null,' ','$nombre','$precio','$descripcion','$existencias', '$imagen')";
+  $sql = 
+  "INSERT INTO `producto`
+  (`idProducto`, `idProveedor`, `nombre`, `precio`, `descripcion`, `existencias`, `imagen`) 
+  VALUES 
+  (null,'0','$nombre','$precio','$descripcion','$existencias', '$imagen')";
   $resultado = $conexion->query($sql);
 
   if($resultado == false){
@@ -46,16 +49,13 @@ else{
 </head>
 <body>
   <div class="bg-light border-dark text-center text-success py-3">
-    <h2 style="font-family: Arial;">Bienvenido <?php echo $_SESSION['email']; ?></h2>
-    <p>*** Ahora está en modo Administrador ***</p>
-  </div>
-  <hr>
-    <a class="textblanco align-content-right" href="..\bd\cerrarsesion.php">Cerrar Sesión</a>
-  <hr>
+    <h2 style="font-family: Arial;">Bienvenido <b class="text-dark"><?php echo $_SESSION['email']; ?></b></h2>
+    <p class="text-danger">*** Ahora está en modo Administrador ***</p>
+</div>
   <div class="container py-3">
     <div class="row">
       <h2 class="col-10" style="font-family: Arial;"><b>INFORMACIÓN DEL PRODUCTO</b></h2>
-    <a class="btn btn-secondary" href="..\bd\cerrarsesion.php" ><b>Cerrar Sesión</b></a>
+    <a class="btn btn-outline-dark" href="..\bd\cerrarsesion.php" ><b>Cerrar Sesión</b></a>
     </div>
     
     <hr>

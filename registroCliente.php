@@ -13,19 +13,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   $numero          = $_POST['numero'];
   $cp              = $_POST['cp'];
   $telefono        = $_POST['telefono'];
+  $tipo            = 1;
   if($email != "")
   {
-    $sql = "INSERT INTO `cliente`(`idCliente`, `apellidoPaterno`, `apellidoMaterno`, `nombres`, 
-    `municipio`, `colonia`, `calle`, `numero`, `cp`, `telefono`, `email`, `password`) 
+    $sql = 
+    "INSERT INTO `cliente`
+    (`idCliente`, `apellidoPaterno`, `apellidoMaterno`, `nombres`, 
+    `municipio`, `colonia`, `calle`, `numero`, `cp`, `telefono`, `email`, `password`, `tipo`) 
     VALUES (null,'$apellidoPaterno','$apellidoMaterno','$nombres','$municipio','$colonia',
-    '$calle','$numero','$cp' ,'$telefono' ,'$email', '$password')";
+    '$calle','$numero','$cp' ,'$telefono' ,'$email', '$password', '$tipo')";
     $resultado = $conexion->query($sql);
     if($resultado == false){
       die("Error al momento de insertar en la base de datos");
     }
     else
     {
-      header('Location:principal.php');            
+          header('Location:principal.php');            
     }
   }
   
@@ -44,12 +47,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
   <title>Registrar</title>
 </head>
-<body class="bg-lights">
-  <nav class="navbar bg-primary py-3"></nav>
+<body class="bg-secondary">
   <br>
-  <div class="container">
 
-
+  <div class="container border border-secondary bg-light">
+    <br>
+    <h1 style="font-family: arial"><b>Complete todos los campos</b></h1>
+    <hr>
+    <form method="POST">
+      <hr class="bg-info">
+      <div class="form-group">
+        <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="ejemplo@marbaran.com">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="contraseña">
+      </div>
+      <hr class="bg-info">
+      <div class="form-inline">
+        <input type="text" class="form-control col-4" name="apellidoPaterno" placeholder="Apellido Paterno">
+        <input type="text" class="form-control col-4" name="apellidoMaterno" placeholder="Apellido Materno">
+        <input type="text" class="form-control col-4" name="nombres" placeholder="Nombres">
+      </div>
+      <hr class="bg-info">
       <h3>Dirección Personal</h3>
       <div class="form-inline">
         <input type="text" class="form-control col-4" name="municipio" placeholder="Municipio">
@@ -64,18 +83,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
       </div>
       <hr>
 
-      <button type="submit" class="btn btn-outline-success btn-lg btn-block "><b>Crear tu Cuenta</b></button>
+      <button type="submit" class="btn btn-outline-success btn-lg btn-block "><b>Registrar</b></button>
 
     </form>
     <br>
-    <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
-        <li class="page-item"><a class="page-link" href="registroCliente2.php">Anterior</a></li>
-        <li class="page-item disabled"><a class="page-link" href="registroCliente2.php">Siguiente</a></li>
-      </ul>
-    </nav>
   </div>
-
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

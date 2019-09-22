@@ -23,8 +23,18 @@ $cp              = $_POST['cp'];
 $telefono        = $_POST['telefono'];
 //Generar consulta 
 $sql = "UPDATE cliente 
-SET apellidoPaterno='$apellidoPaterno', apellidoMaterno = '$apellidoMaterno', nombres = '$nombres',
-    municipio='$municipio', colonia='$colonia', calle='$calle', cp='$cp', telefono='$telefono', numero='$numero' WHERE email='$email'";
+SET 
+    apellidoPaterno='$apellidoPaterno', 
+    apellidoMaterno = '$apellidoMaterno', 
+    nombres = '$nombres',
+    municipio='$municipio', 
+    colonia='$colonia', 
+    calle='$calle', 
+    cp='$cp', 
+    telefono='$telefono', 
+    numero='$numero',
+    tipo = 0
+WHERE email='$email'";
 $respuesta = $conexion->prepare($sql);
 var_dump($sql);
 if($respuesta == false)
@@ -36,13 +46,9 @@ else
     $dir = '../' . "perfilCliente.php";
     echo $dir;
     header('Location: ../perfilCliente.php');
-
 }
-
-
 ?>
 <!--
-
 if(isset($_POST['email']) && isset($_POST['password'])){
     $email = filter_input(INPUT_POST,'email', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST,'password', FILTER_SANITIZE_STRING);
@@ -64,7 +70,6 @@ if(isset($_POST['email']) && isset($_POST['password'])){
             }
             else{
                 echo 'Usuario o contraseña incorrectos';
-
                 $t1 = 'Location: principal.php';
                 $t2 = $t1 . $_SESSION['pagina']; 
                 header($t2);
